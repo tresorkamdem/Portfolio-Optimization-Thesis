@@ -1,136 +1,128 @@
-# Portfolio Optimization with Machine Learning
+# Portfolio Optimization with Machine Learning  
+# Portfoliooptimierung mit Machine Learning
 
-## Overview
+---
 
-This project investigates portfolio optimization using classical financial theory
+## Overview | Überblick
+
+This project investigates portfolio optimization using classical financial theory  
 and modern data-driven methods.
 
-The main objective is to analyze whether Machine Learning can improve the estimation
-of expected returns compared to the classical Markowitz approach.
+Dieses Projekt untersucht die Portfoliooptimierung unter Verwendung klassischer Finanztheorie  
+sowie moderner datengetriebener Methoden.
 
-Portfolio optimization is a central problem in finance, where investors aim to maximize
-returns while controlling risk. The classical solution, introduced by Markowitz,
-relies on the trade-off between expected return and variance.
+The main objective is to analyze whether Machine Learning techniques can improve  
+the estimation of expected returns compared to the classical Markowitz approach.
 
----
-
-## Structure
-
-- 01_data_preparation.ipynb  
-  Data loading and preprocessing  
-
-- 02_markowitz_simulation.ipynb  
-  Simulation of the efficient frontier using synthetic data  
-
-- 03_markowitz_real_data.ipynb  
-  Portfolio optimization using real financial data  
-
-- 04_machine_learning_extension.ipynb  
-  Introduction of Machine Learning for return prediction  
-
-- 05_volatility_model_garch.ipynb  
-  (Work in progress) Volatility modeling using GARCH  
+Das Hauptziel ist es zu untersuchen, ob Machine-Learning-Methoden die Schätzung erwarteter Renditen  
+im Vergleich zum klassischen Markowitz-Ansatz verbessern können.
 
 ---
 
-## Research Question
+## Motivation | Motivation
+
+In finance, investors aim to maximize returns while controlling risk.
+
+In der Finanzökonomie möchten Investoren ihre Rendite maximieren und gleichzeitig das Risiko kontrollieren.
+
+This trade-off can be formulated as an optimization problem between return and risk.
+
+Dieses Problem lässt sich als Optimierungsproblem zwischen Rendite und Risiko formulieren.
+
+The classical solution is given by Markowitz portfolio theory,  
+which shows that diversification reduces portfolio risk.
+
+Die klassische Lösung liefert die Markowitz-Portfolio-Theorie,  
+die zeigt, dass Diversifikation das Risiko eines Portfolios reduziert.
+
+---
+
+## Research Question | Forschungsfrage
 
 Can Machine Learning improve classical portfolio optimization?
-
----
-
-## Methodology
-
-This project compares three main approaches:
-
-1. Classical Markowitz optimization  
-2. Markowitz with Machine Learning-based return prediction  
-3. Markowitz with volatility modeling (GARCH)  
-
----
-
-## Status
-
-Work in progress.
-
-### Current progress:
-- Implementation of classical Markowitz optimization  
-- Extension to real financial data  
-- Initial Machine Learning approach for return prediction  
-
-### Next steps:
-- Improve Machine Learning models  
-- Evaluate prediction performance  
-- Implement GARCH volatility models  
-- Compare all approaches  
-
----
-
-## Conclusion
-
-This project provides a structured framework for analyzing portfolio optimization
-from both a classical and a data-driven perspective.
-
-It serves as a foundation for further research on improving financial decision-making
-through modern quantitative methods.
-
----
-
-## 🇩🇪 Beschreibung (Deutsch)
-
-Dieses Projekt untersucht die Portfoliooptimierung unter Verwendung
-klassischer finanzmathematischer Methoden sowie moderner Machine-Learning-Ansätze.
-
-Ziel ist es zu analysieren, ob Machine Learning die Schätzung der erwarteten Renditen
-und somit die Portfoliooptimierung verbessern kann.
-
----
-
-## Struktur
-
-- 01_data_preparation.ipynb  
-  Datenaufbereitung  
-
-- 02_markowitz_simulation.ipynb  
-  Simulation der Efficient Frontier  
-
-- 03_markowitz_real_data.ipynb  
-  Optimierung mit realen Finanzdaten  
-
-- 04_machine_learning_extension.ipynb  
-  Einführung von Machine Learning  
-
-- 05_volatility_model_garch.ipynb  
-  (In Arbeit) Volatilitätsmodellierung mit GARCH  
-
----
-
-## Forschungsfrage
 
 Kann Machine Learning die klassische Portfoliooptimierung verbessern?
 
 ---
 
-## Status
+## Methodology | Methodik
 
-Projekt in Bearbeitung.
+The project follows a structured approach:
 
-### Aktueller Stand:
-- Implementierung der klassischen Markowitz-Optimierung  
-- Anwendung auf reale Finanzdaten  
-- Erste Machine-Learning-Ansätze  
+Das Projekt folgt einem strukturierten Ansatz:
 
-### Nächste Schritte:
-- Verbesserung der ML-Modelle  
-- Bewertung der Prognosequalität  
-- Implementierung von GARCH-Modellen  
-- Vergleich der Methoden  
+1. Data collection and preprocessing  
+   Datensammlung und Aufbereitung  
+
+2. Return and risk estimation  
+   Schätzung von Rendite und Risiko  
+
+3. Simulation of the Efficient Frontier  
+   Simulation der Efficient Frontier  
+
+4. Portfolio optimization using the Sharpe Ratio  
+   Portfoliooptimierung mit der Sharpe Ratio  
+
+5. Extension using Machine Learning (in progress)  
+   Erweiterung durch Machine Learning (in Arbeit)  
+
+6. Volatility modeling using GARCH (planned)  
+   Volatilitätsmodellierung mit GARCH (geplant)  
 
 ---
 
-## Fazit
+## Project Structure | Projektstruktur
 
-Dieses Projekt bietet eine strukturierte Grundlage zur Analyse der Portfoliooptimierung
-aus klassischer und datengetriebener Perspektive.
+- `notebooks/01_data_preparation.ipynb`  
+  Data loading and preprocessing  
 
-Es dient als Basis für weiterführende Forschung im Bereich quantitativer Finanzmodelle.
+- `notebooks/02_markowitz_simulation.ipynb`  
+  Simulation of the Efficient Frontier  
+
+- `notebooks/03_markowitz_real_data.ipynb`  
+  Portfolio optimization using real financial data  
+
+- `notebooks/04_machine_learning_extension.ipynb`  
+  Machine Learning for return prediction (work in progress)  
+
+- `notebooks/05_volatility_model_garch.ipynb`  
+  Volatility modeling using GARCH (planned)  
+
+---
+
+## Current Status | Aktueller Stand
+
+This project is part of an ongoing Bachelor thesis.
+
+Dieses Projekt ist Teil einer laufenden Bachelorarbeit.
+
+Work in progress.
+
+---
+
+## Future Work | Zukünftige Arbeit
+
+- Improve return prediction using Machine Learning models  
+  Verbesserung der Renditeprognose durch Machine Learning  
+
+- Implement GARCH volatility forecasting  
+  Implementierung von GARCH-Modellen zur Volatilitätsschätzung  
+
+- Compare all approaches based on Sharpe Ratio  
+  Vergleich aller Ansätze anhand der Sharpe Ratio  
+
+---
+
+## Requirements | Voraussetzungen
+
+Install dependencies using:
+
+```bash
+pip install -r requirements.txt
+
+
+
+Author | Autor
+
+Tresor Kamdem
+Bachelor Student
