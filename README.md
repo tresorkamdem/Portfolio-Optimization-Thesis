@@ -128,3 +128,11 @@ https://github.com/tresorkamdem/Portfolio-Optimization-Thesis
 Jean Jacques Kamdem  
 Matrikelnummer: 548153  
 Bachelorstudent Wirtschaftsmathematik  
+
+---
+
+## References (initial) | Literatur (Auswahl)
+
+- Markowitz, H. (1952). Portfolio Selection  
+- Sharpe, W. (1964). Capital Asset Pricing Model  
+- Hull, J. – Options, Futures and Other Derivatives  
