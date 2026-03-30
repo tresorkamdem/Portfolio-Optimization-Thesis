@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="88183c44-6077-44b8-aa59-6bf65aebdb80" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/.ipynb_checkpoints/02_markowitz_simulation.ipynb-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/01_data_preparation.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/01_data_preparation.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/02_markowitz_simulation.ipynb.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/03_markowitz_real_data.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/03_markowitz_real_data.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/04_machine_learning_extension.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/04_machine_learning_extension.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/05_volatility_model_garch.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/05_volatility_model_garch.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/README-checkpoint.md" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/README-checkpoint.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
