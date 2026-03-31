@@ -1,138 +1,158 @@
-# Portfolio Optimization with Machine Learning  
 # Portfoliooptimierung mit Machine Learning  
 
 ---
 
-## Overview | Überblick
+## Überblick
 
-This project investigates portfolio optimization using classical financial theory and modern data-driven methods.
+Dieses Projekt untersucht die Portfoliooptimierung unter Verwendung klassischer finanzwirtschaftlicher Modelle sowie moderner datengetriebener Methoden.
 
-Das Ziel dieses Projekts ist die Untersuchung der Portfoliooptimierung unter Verwendung klassischer finanzwirtschaftlicher Methoden sowie moderner datengetriebener Ansätze.
-
-The main objective is to analyze whether Machine Learning techniques can improve the estimation of expected returns compared to the classical Markowitz approach.
-
-Im Fokus steht die Frage, ob Machine-Learning-Methoden die klassische Portfoliooptimierung verbessern können.
+Im Fokus steht der Vergleich eines praxisbasierten Portfolios mit mathematisch optimierten Portfolios.
 
 ---
 
-## Motivation | Motivation
+## Zielsetzung
 
-In finance, investors aim to maximize returns while controlling risk.
+Ziel dieser Arbeit ist es zu analysieren, ob Machine-Learning-Methoden die klassische Portfoliooptimierung nach Markowitz verbessern können.
 
-In der Finanzökonomie versuchen Investoren, ihre Rendite zu maximieren und gleichzeitig das Risiko zu kontrollieren.
-
-This trade-off can be formulated as an optimization problem between return and risk.
-
-Dieses Problem kann als Optimierungsproblem zwischen Rendite und Risiko formuliert werden.
-
-The classical solution is given by Markowitz, showing that diversification reduces risk.
-
-Die klassische Lösung liefert die Markowitz-Theorie, die zeigt, dass Diversifikation das Risiko reduziert.
+Dabei wird insbesondere untersucht, ob sich durch datenbasierte Ansätze bessere Rendite-Risiko-Verhältnisse erzielen lassen.
 
 ---
 
-## Research Question | Forschungsfrage
+## Methodik
 
-Can Machine Learning improve classical portfolio optimization?
+Das Projekt folgt einem strukturierten quantitativen Ansatz:
 
-Kann Machine Learning die klassische Portfoliooptimierung nach Markowitz verbessern?
-
----
-
-## Methodology | Methodik
-
-This project follows a structured research approach:
-
-1. Data collection using financial APIs (yfinance)  
-2. Data preprocessing and return computation  
-3. Portfolio optimization using Markowitz theory  
-4. Simulation of the efficient frontier  
-5. Extension using Machine Learning models  
-6. Volatility modeling using GARCH  
-
-Das Projekt folgt einem strukturierten wissenschaftlichen Ansatz:
-
-1. Datenerhebung über Finanz-APIs (yfinance)  
-2. Datenaufbereitung und Berechnung von Renditen  
-3. Portfoliooptimierung nach Markowitz  
-4. Simulation der effizienten Grenze  
-5. Erweiterung durch Machine Learning  
-6. Modellierung der Volatilität mit GARCH  
+1. Datenerhebung über Finanz-APIs (Yahoo Finance)  
+2. Berechnung von Renditen auf Basis historischer Daten  
+3. Schätzung der erwarteten Renditen und der Kovarianzmatrix  
+4. Portfoliooptimierung nach der Markowitz-Theorie  
+5. Modellierung der Volatilität mit GARCH  
+6. Erweiterung durch Machine-Learning-Modelle  
+7. Bewertung der Ergebnisse anhand von Risikokennzahlen  
 
 ---
 
-## Project Structure | Projektstruktur
+## Datenbasis
 
-- `notebooks/01_data_preparation.ipynb`  
-  Data loading and preprocessing / Datenaufbereitung  
+Da direkte Marktdaten aus der CEMAC-Region nur eingeschränkt verfügbar sind, werden börsengehandelte Fonds (ETFs) als Approximation verschiedener Anlageklassen verwendet:
 
-- `notebooks/02_markowitz_simulation.ipynb`  
-  Simulation of the efficient frontier / Simulation der effizienten Grenze  
+- SPY → Aktienmarkt  
+- QQQ → Technologieaktien  
+- TLT → Staatsanleihen  
+- GLD → Gold  
+- VNQ → Immobilien  
 
-- `notebooks/03_markowitz_real_data.ipynb`  
-  Portfolio optimization with real data / Optimierung mit realen Daten  
-
-- `notebooks/04_machine_learning_extension.ipynb`  
-  Machine Learning extension *(Work in progress)*  
-  Machine Learning Erweiterung *(in Bearbeitung)*  
-
-- `notebooks/05_volatility_model_garch.ipynb`  
-  GARCH volatility modeling *(Work in progress)*  
-  GARCH Volatilitätsmodell *(in Bearbeitung)*  
+Die Daten stammen aus Yahoo Finance und ermöglichen eine empirische Analyse von Renditen und Risiken.
 
 ---
 
-## Current Status | Aktueller Stand
+## Projektstruktur
 
-This project is part of an ongoing Bachelor thesis.
-
-Dieses Projekt ist Teil einer laufenden Bachelorarbeit.
-
-Work in progress.
-
-In Bearbeitung.
-
----
-
-## Next Steps | Nächste Schritte
-
-- Improve return prediction using Machine Learning  
-- Implement GARCH models for volatility estimation  
-- Compare all approaches using the Sharpe Ratio  
-- Evaluate robustness and out-of-sample performance  
-
-- Verbesserung der Renditeprognose durch Machine Learning  
-- Implementierung von GARCH-Modellen zur Volatilitätsschätzung  
-- Vergleich aller Ansätze anhand der Sharpe Ratio  
-- Analyse der Robustheit und Out-of-Sample-Performance  
+Portfolio-Optimization-Thesis/
+│
+├── notebooks/        # Analysen und Visualisierungen  
+├── src/              # Kernlogik (Modelle & Funktionen)  
+│   ├── data/  
+│   ├── models/  
+│   ├── utils/  
+│
+├── scripts/          # Ausführbare Programme  
+│   ├── run_markowitz.py  
+│   ├── run_ml.py  
+│   ├── run_garch.py  
+│   └── run_all_models.py  
+│
+├── results/          # Ergebnisse (Tabellen & Grafiken)  
+├── README.md  
+├── requirements.txt  
 
 ---
 
-## Installation | Installation
+## Implementierung
 
-Install dependencies using:
+### Markowitz-Modell
+- Minimierung der Portfolio-Varianz  
+- Nebenbedingungen: Summe der Gewichte = 1, keine Leerverkäufe  
 
-pip install -r requirements.txt
+### Machine Learning
+- Prognose von Renditen auf Basis historischer Daten  
+- Erweiterung der klassischen Portfolio-Theorie  
+
+### GARCH-Modell
+- Modellierung zeitvariierender Volatilität  
+- Berücksichtigung von Volatilitäts-Clustern in Finanzmärkten  
 
 ---
 
-## Repository
+## Ausführung
 
-GitHub Repository:  
-https://github.com/tresorkamdem/Portfolio-Optimization-Thesis
+Alle Modelle ausführen:
+
+python -m scripts.run_all_models
+
+Einzelne Modelle:
+
+python -m scripts.run_markowitz  
+python -m scripts.run_ml  
+python -m scripts.run_garch  
 
 ---
 
-## Author
+## Ergebnisse (vorläufig)
+
+Erste Ergebnisse zeigen:
+
+- Das praxisbasierte Portfolio ist intuitiv, jedoch nicht effizient  
+- Das Markowitz-Portfolio bietet ein besseres Rendite-Risiko-Verhältnis  
+- Machine Learning und GARCH liefern zusätzliche Einblicke in Prognose und Risikomodellierung  
+
+Diese Ergebnisse sind als vorläufig zu verstehen und werden im weiteren Verlauf der Arbeit vertieft.
+
+---
+
+## Bewertung
+
+Die Portfolios werden anhand folgender Kennzahlen bewertet:
+
+- Erwartete Rendite  
+- Volatilität (Standardabweichung)  
+- Sharpe Ratio  
+
+Diese ermöglichen einen konsistenten Vergleich der verschiedenen Ansätze.
+
+---
+
+## Aktueller Stand der Arbeit
+
+Dieses Projekt ist Teil einer laufenden Bachelorarbeit und befindet sich noch in Bearbeitung.
+
+Aktuelle Schwerpunkte sind:
+
+- Verbesserung der Renditeprognosen durch Machine Learning  
+- Erweiterung der GARCH-Modelle  
+- Durchführung von Out-of-Sample-Analysen  
+- Validierung der Ergebnisse  
+
+---
+
+## Installation
+
+Abhängigkeiten installieren:
+
+pip install -r requirements.txt  
+
+---
+
+## Autor
 
 Jean Jacques Kamdem  
 Matrikelnummer: 548153  
-Bachelorstudent Wirtschaftsmathematik  
+Bachelor Wirtschaftsmathematik  
 
 ---
 
-## References (initial) | Literatur (Auswahl)
+## Literatur
 
 - Markowitz, H. (1952). Portfolio Selection  
 - Sharpe, W. (1964). Capital Asset Pricing Model  
-- Hull, J. – Options, Futures and Other Derivatives  
+- Hull, J. (2018). Options, Futures and Other Derivatives

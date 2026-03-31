@@ -5,10 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88183c44-6077-44b8-aa59-6bf65aebdb80" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/scripts/run_all_models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/run_garch.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/run_markowitz.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/run_ml.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data/data_loader.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/garch_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/markowitz.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/ml_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/metrics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/plotting.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/README-checkpoint.md" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/README-checkpoint.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/.ipynb_checkpoints/data_analysis-checkpoint.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/data_analysis.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/requirements-checkpoint.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/requirements-checkpoint.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/06_theory_vs_practice.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/06_theory_vs_practice.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/Untitled.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,13 +45,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.data_loader.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
