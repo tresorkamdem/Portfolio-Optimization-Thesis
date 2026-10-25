@@ -1,158 +1,75 @@
-# Portfoliooptimierung mit Machine Learning  
+# Portfoliooptimierung auf Basis von Machine-Learning-Methoden
 
----
+**Verbesserung der Kovarianzschätzung durch Shrinkage-Methoden**
 
-## Überblick
+Bachelorarbeit im Studiengang Wirtschaftsmathematik, HTW Berlin
+Jean Jacques Kamdem · eingereicht am 13. Oktober 2026
 
-Dieses Projekt untersucht die Portfoliooptimierung unter Verwendung klassischer finanzwirtschaftlicher Modelle sowie moderner datengetriebener Methoden.
+Gutachter: Prof. Dr. Manfred-Erich Jäger-Ambrozewicz, Prof. Dr. Sunna Torge
 
-Im Fokus steht der Vergleich eines praxisbasierten Portfolios mit mathematisch optimierten Portfolios.
+Dieses Repository ist das Replikationspaket des empirischen Teils: Daten, ein Hilfsskript und je ein eigenständiges, offline lauffähiges Skript für jede Tabelle und Abbildung der Arbeit.
 
----
+## Forschungsfrage
 
-## Zielsetzung
+> Führen Shrinkage-Schätzer der Kovarianzmatrix zu robusteren Out-of-Sample-Portfolios als der klassische empirische Schätzer?
 
-Ziel dieser Arbeit ist es zu analysieren, ob Machine-Learning-Methoden die klassische Portfoliooptimierung nach Markowitz verbessern können.
+Untersucht wird das Global-Minimum-Varianz-Portfolio (GMV), das nur von der Kovarianzmatrix abhängt. Verglichen werden der empirische Schätzer, Ledoit-Wolf, Oracle Approximating Shrinkage (OAS) und die naive Gleichgewichtung 1/n in einem Rolling-Window-Backtest auf monatlichen Industrieportfolios der Kenneth French Data Library (1969–2026).
 
-Dabei wird insbesondere untersucht, ob sich durch datenbasierte Ansätze bessere Rendite-Risiko-Verhältnisse erzielen lassen.
+## Zentrale Ergebnisse
 
----
+Out-of-Sample, 48 Branchen:
 
-## Methodik
+| Methode | Vola p.a. (τ = 60) | Sharpe (τ = 60) | Turnover (τ = 60) | Vola p.a. (τ = 120) | Sharpe (τ = 120) |
+| --- | --- | --- | --- | --- | --- |
+| Empirisch | 22,94 % | 0,290 | 1,907 | 14,09 % | 0,729 |
+| Ledoit-Wolf | 12,52 % | 0,795 | 0,246 | 12,18 % | 0,912 |
+| OAS | 12,99 % | 0,747 | 0,301 | 12,58 % | 0,849 |
+| 1/n | 16,84 % | 0,802 | 0,000 | 16,43 % | 0,807 |
 
-Das Projekt folgt einem strukturierten quantitativen Ansatz:
+- Ledoit-Wolf senkt die Volatilität bei τ = 60 um rund 45 % und die mittlere Konditionszahl von über 18 000 auf 258.
+- Der Vorteil wächst mit n/T: Volatilitätsreduktion 1,9 % (n = 10), 6,1 % (n = 30), 13,5 % (n = 48) bei τ = 120.
+- Bei der Sharpe-Ratio bleibt 1/n konkurrenzfähig, im Einklang mit DeMiguel, Garlappi und Uppal (2009).
 
-1. Datenerhebung über Finanz-APIs (Yahoo Finance)  
-2. Berechnung von Renditen auf Basis historischer Daten  
-3. Schätzung der erwarteten Renditen und der Kovarianzmatrix  
-4. Portfoliooptimierung nach der Markowitz-Theorie  
-5. Modellierung der Volatilität mit GARCH  
-6. Erweiterung durch Machine-Learning-Modelle  
-7. Bewertung der Ergebnisse anhand von Risikokennzahlen  
+![Out-of-Sample-Volatilität](abbildung4_volatilitaet.png)
 
----
+## Inhalt
 
-## Datenbasis
-
-Da direkte Marktdaten aus der CEMAC-Region nur eingeschränkt verfügbar sind, werden börsengehandelte Fonds (ETFs) als Approximation verschiedener Anlageklassen verwendet:
-
-- SPY → Aktienmarkt  
-- QQQ → Technologieaktien  
-- TLT → Staatsanleihen  
-- GLD → Gold  
-- VNQ → Immobilien  
-
-Die Daten stammen aus Yahoo Finance und ermöglichen eine empirische Analyse von Renditen und Risiken.
-
----
-
-## Projektstruktur
-
-Portfolio-Optimization-Thesis/
-│
-├── notebooks/        # Analysen und Visualisierungen  
-├── src/              # Kernlogik (Modelle & Funktionen)  
-│   ├── data/  
-│   ├── models/  
-│   ├── utils/  
-│
-├── scripts/          # Ausführbare Programme  
-│   ├── run_markowitz.py  
-│   ├── run_ml.py  
-│   ├── run_garch.py  
-│   └── run_all_models.py  
-│
-├── results/          # Ergebnisse (Tabellen & Grafiken)  
-├── README.md  
-├── requirements.txt  
-
----
-
-## Implementierung
-
-### Markowitz-Modell
-- Minimierung der Portfolio-Varianz  
-- Nebenbedingungen: Summe der Gewichte = 1, keine Leerverkäufe  
-
-### Machine Learning
-- Prognose von Renditen auf Basis historischer Daten  
-- Erweiterung der klassischen Portfolio-Theorie  
-
-### GARCH-Modell
-- Modellierung zeitvariierender Volatilität  
-- Berücksichtigung von Volatilitäts-Clustern in Finanzmärkten  
-
----
+| Datei | Inhalt |
+| --- | --- |
+| `10_/30_/48_Industry_Portfolios.csv` | Kenneth French Data Library, monatliche wertgewichtete Renditen |
+| `daten_vorbereiten.py` | Hilfsskript: lädt und bereinigt eine French-CSV (`lade_renditen`) |
+| `Repli_Tabelle1_Schaetzproblem.py` | Konditionszahl und Rang der empirischen Kovarianzmatrix je Fensterlänge |
+| `Repli_Tabelle2_Kennzahlen.py` | Out-of-Sample-Kennzahlen (Vola, Sharpe, Turnover, Konditionszahl) für τ = 60 und 120 |
+| `Repli_Tabelle3_Dimension.py` | Volatilitätsreduktion nach Dimension (n = 10, 30, 48) |
+| `Repli_Abbildung1_Effizienzlinie.py` | Effizienzlinie, GMV- und Tangentialportfolio (hypothetisches Beispiel) |
+| `Repli_Abbildung2_Rolling.py` | Schema des Rolling-Window-Verfahrens |
+| `Repli_Abbildung3_Problem.py` | Konditionszahl in Abhängigkeit von n/T |
+| `Repli_Abbildung4_Volatilitaet.py` | Out-of-Sample-Volatilität je Schätzer und Fensterlänge |
+| `Repli_Abbildung5_Dimension.py` | Volatilitätsreduktion nach Anzahl der Branchen |
+| `abbildung*.png` | Von den Skripten erzeugte Abbildungen |
 
 ## Ausführung
 
-Alle Modelle ausführen:
+```bash
+pip install -r requirements.txt
+python3 Repli_Tabelle1_Schaetzproblem.py
+python3 Repli_Tabelle2_Kennzahlen.py
+python3 Repli_Tabelle3_Dimension.py
+python3 Repli_Abbildung1_Effizienzlinie.py   # usw. für Abbildung 2 bis 5
+```
 
-python -m scripts.run_all_models
+Die Skripte im Hauptverzeichnis ausführen, da sie die CSV-Dateien und `daten_vorbereiten.py` relativ laden.
 
-Einzelne Modelle:
+## Ausblick
 
-python -m scripts.run_markowitz  
-python -m scripts.run_ml  
-python -m scripts.run_garch  
+Nichtlineares Shrinkage (Ledoit und Wolf, 2017), Ausweitung auf Einzelaktien, formaler Test der Sharpe-Differenzen (Ledoit und Wolf, 2008) sowie faktorbasierte und Graphical-Lasso-Schätzer.
 
----
+## Literatur (Auswahl)
 
-## Ergebnisse (vorläufig)
+- Markowitz, H. (1952). Portfolio Selection. *Journal of Finance*.
+- Ledoit, O. und Wolf, M. (2004). A well-conditioned estimator for large-dimensional covariance matrices. *Journal of Multivariate Analysis*.
+- Chen, Y., Wiesel, A. und Hero, A. O. (2010). Shrinkage Algorithms for MMSE Covariance Estimation. *IEEE Transactions on Signal Processing*.
+- DeMiguel, V., Garlappi, L. und Uppal, R. (2009). Optimal Versus Naive Diversification. *Review of Financial Studies*.
+- Hastie, T., Tibshirani, R. und Friedman, J. (2009). *The Elements of Statistical Learning*.
 
-Erste Ergebnisse zeigen:
-
-- Das praxisbasierte Portfolio ist intuitiv, jedoch nicht effizient  
-- Das Markowitz-Portfolio bietet ein besseres Rendite-Risiko-Verhältnis  
-- Machine Learning und GARCH liefern zusätzliche Einblicke in Prognose und Risikomodellierung  
-
-Diese Ergebnisse sind als vorläufig zu verstehen und werden im weiteren Verlauf der Arbeit vertieft.
-
----
-
-## Bewertung
-
-Die Portfolios werden anhand folgender Kennzahlen bewertet:
-
-- Erwartete Rendite  
-- Volatilität (Standardabweichung)  
-- Sharpe Ratio  
-
-Diese ermöglichen einen konsistenten Vergleich der verschiedenen Ansätze.
-
----
-
-## Aktueller Stand der Arbeit
-
-Dieses Projekt ist Teil einer laufenden Bachelorarbeit und befindet sich noch in Bearbeitung.
-
-Aktuelle Schwerpunkte sind:
-
-- Verbesserung der Renditeprognosen durch Machine Learning  
-- Erweiterung der GARCH-Modelle  
-- Durchführung von Out-of-Sample-Analysen  
-- Validierung der Ergebnisse  
-
----
-
-## Installation
-
-Abhängigkeiten installieren:
-
-pip install -r requirements.txt  
-
----
-
-## Autor
-
-Jean Jacques Kamdem  
-Matrikelnummer: 548153  
-Bachelor Wirtschaftsmathematik  
-
----
-
-## Literatur
-
-- Markowitz, H. (1952). Portfolio Selection  
-- Sharpe, W. (1964). Capital Asset Pricing Model  
-- Hull, J. (2018). Options, Futures and Other Derivatives
+Datenquelle: [Kenneth R. French Data Library](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html).

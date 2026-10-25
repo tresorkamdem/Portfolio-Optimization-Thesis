@@ -1,9 +1,4 @@
-pandas
 numpy
-matplotlib
-seaborn
+pandas
 scikit-learn
-yfinance
-scipy
-jupyter
-arch
+matplotlib
